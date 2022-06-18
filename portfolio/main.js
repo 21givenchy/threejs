@@ -31,10 +31,10 @@ scene.add(lightHelper, gridHelper);
 const controls = new orbitControls(camera, renderer.domElement);
 
 function addStar() {
-    const geometry = new THREE.SphereGeometry(0.5, 32, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+    const material = new THREE.MeshBasicMaterial({ color: 0xffffff })
     const star = new THREE.Mesh(geometry, material);
-    star.position.set(Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50);
+    const [x, y, z] = Array(3).fill().map(() => Math.random() * 100 - 50);
     scene.add(star);
 }
 
