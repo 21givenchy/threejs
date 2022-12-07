@@ -64,12 +64,11 @@ const spaceTexture = new THREE.TextureLoader().load('space.jpg');
 scene.background = spaceTexture;
 
 // Avatar
+ const georgeTexture = new THREE.TextureLoader().load('george.jpg');
 
-const georgeTexture = new THREE.TextureLoader().load('george.png');
+ const george = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: georgeTexture }));
 
-const george = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: georgeTexture }));
-
-scene.add(george);
+  scene.add(george);
 
 // Moon
 
@@ -89,8 +88,8 @@ scene.add(moon);
 moon.position.z = 30;
 moon.position.setX(-10);
 
-jeff.position.z = -5;
-jeff.position.x = 2;
+george.position.z = -5;
+george.position.x = 2;
 
 // Scroll Animation
 
@@ -100,9 +99,8 @@ function moveCamera() {
     moon.rotation.y += 0.075;
     moon.rotation.z += 0.05;
 
-    jeff.rotation.y += 0.01;
-    jeff.rotation.z += 0.01;
-
+    george.rotation.y += 0.01;
+    george.rotation.z += 0.01;
     camera.position.z = t * -0.01;
     camera.position.x = t * -0.0002;
     camera.rotation.y = t * -0.0002;
